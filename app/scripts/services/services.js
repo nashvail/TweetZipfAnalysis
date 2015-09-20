@@ -4,7 +4,7 @@ angular.module('zipfApp.services', []).factory('twitterService', function($q) {
     return {
         initialize: function() {
             //initialize OAuth.io with public key of the application
-            OAuth.initialize('f3H1JKcp1Kz51yawnYHyQ8YZjZM', {cache:true});
+            OAuth.initialize('NKVYp__QsQt8Bw3yXsnb7pifayg', {cache:true});
             //try to create an authorization result when the page loads, this means a returning user won't have to click the twitter button again
             authorizationResult = OAuth.create('twitter');
         },

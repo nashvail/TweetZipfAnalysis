@@ -11,15 +11,17 @@
   </div>
   <div class="row">
     <div class="col-xs-12" id = "results">
-      <div class="row" ng-repeat="t in tweets">
-                    <div class="col-xs-2 col-sm-1">
-                        <img ng-src="{{t.user.profile_image_url}}" class="img-circle">
-                    </div>
-                    <div class="col-xs-10 col-sm-11">
-                        <small>{{t.user.name}}</small><br>{{t.text}}
-                    </div>
-                </div>
-
+      <div class="media" ng-repeat="t in tweets">
+        <div class="media-left media-middle">
+          <a href="{{"http://twitter.com/" + t.user.name}}">
+            <img class="media-object" ng-src="{{t.user.profile_image_url}}" alt="">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{t.user.name}}</h4>
+          {{t.text}}
+        </div>
+      </div>
     </div>
   </div>
 </div>
