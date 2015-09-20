@@ -17,6 +17,7 @@ angular.module('zipfApp')
     $scope.refreshTimeline = function() {
         twitterService.getLatestTweets().then(function(data) {
             $scope.tweets = data;
+            console.log(data);
         });
     }
  
