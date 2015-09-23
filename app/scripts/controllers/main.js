@@ -17,7 +17,12 @@ angular.module('zipfApp')
       twitterService.getLatestTweets().then(function(data) {
         $scope.tweets = data;
         var wordCounts = wordCountService.getWordCounts(data);
-        console.log(wordCounts);  
+
+        // let us try to sort the word counts 
+        var wordCountArray = _.pairs(wordCounts);
+        wordCountArray.sort(function(a, b) { return b[1] - a[1]});
+        console.log(wordCountArray);
+
       });
     }
 
