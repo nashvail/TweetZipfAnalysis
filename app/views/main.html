@@ -10,18 +10,9 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12" id = "results">
-      <div class="media" ng-repeat="t in tweets">
-        <div class="media-left media-middle">
-          <a href="{{"http://twitter.com/" + t.user.name}}">
-            <img class="media-object" ng-src="{{t.user.profile_image_url}}" alt="">
-          </a>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading">{{t.screen_name}}</h4>
-          {{t.text}}
-        </div>
-      </div>
+    <div class="col-xs-12 plot" id = "linearPlot">
+      <linear-words-plot id = "linearPlot"></linear-words-plot>
     </div>
   </div>
+  <!-- We're going to have a directive here  -->
 </div>
