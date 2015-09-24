@@ -53,8 +53,8 @@ angular.module('zipfApp')
 
 
       		// Drawing the axes on the plot 
-        	xAxis.scale(xScale).orient('bottom').ticks(0).tickFormat('');
-        	yAxis.scale(yScale).orient('left').tickFormat('');
+        	xAxis.scale(xScale).orient('bottom').tickFormat('').tickSize(0);
+        	yAxis.scale(yScale).orient('left').tickFormat('').tickSize(0);
 
         	logPlot.append('g')
         		.attr('class', 'axis')

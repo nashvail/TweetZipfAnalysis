@@ -3,6 +3,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import './_layout.scss';
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -12,6 +14,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 body {
   padding: 0;
+  font-family : 'Source Sans Pro';
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -70,7 +73,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    // max-width: 730px;
   }
 
   /* Remove the padding we set earlier */
@@ -94,22 +97,3 @@ body {
   margin-top : 50px;
 }
 
-#content{
-  margin-top : 50px;
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: black;
-    shape-rendering: crispEdges;
-}
-
-.axis text {
-    font-family: sans-serif;
-    font-size: 11px;
-}
-
-.linearPlot {
-  overflow : auto;
-}
