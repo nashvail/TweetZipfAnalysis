@@ -13,7 +13,11 @@ angular.module('zipfApp')
   	var width = 800,
   			height = 600,
   			xScale = d3.scale.linear(),
-  			yScale = d3.scale.linear();
+  			yScale = d3.scale.linear(),
+  			xAxis = d3.svg.axis(),
+  			yAxis = d3.svg.axis(),
+  			padding = 50,
+  			dotRadius = 2;
 
 
     return {
@@ -27,8 +31,9 @@ angular.module('zipfApp')
 
         	var plotData = scope.wordCounts;
 
+        	// Setting up the scale and then the axes 
         	yScale.domain([ 0, d3.max( plotData, function(d) { return d[1];})]).range([height, 0]);
-
+        	xScale.domain([0, width]).range([0, width]);
 
         	var plot = d3.select(element[0])
         		.append('svg')
@@ -40,14 +45,28 @@ angular.module('zipfApp')
         		.data(plotData)
         		.enter()
         		.append('circle')
-        		.attr('r', 2)
+        		.attr('r', dotRadius)
         		.attr('fill', 'black')
         		.attr('cx', function(d, i) {
-        			return (i * 2) + 'px';
+        			return (xScale(i + 1)) + (padding * 1.5);
         		})
         		.attr('cy', function(d) {
-        			return (yScale(d[1]) + 'px');
+        			return yScale(d[1]);
         		});
+
+        	// Drawing the axes on the plot 
+        	xAxis.scale(xScale).orient('bottom').ticks(10);
+        	yAxis.scale(yScale).orient('left').ticks(10);
+
+        	plot.append('g')
+        		.attr('class', 'axis')
+        		.attr("transform", "translate(" + (padding) + ", 0)")
+        		.call(yAxis);
+
+        	plot.append('g')
+        		.attr('class', 'axis')
+        		.attr("transform", "translate(0," + (height - padding) + ")")
+        		.call(xAxis);
 
 
         });
