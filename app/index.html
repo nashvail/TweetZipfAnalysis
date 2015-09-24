@@ -20,31 +20,6 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="#/">zipf</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="navbar--link active"><a href="#/">Home</a></li>
-            </ul>
-          </div>
-        </div> <!-- End of container -->
-      </div>
-    </div>
-
     <div class="container">
     <!-- This is the view that is replaced with everyting that is inside there  -->
     <div ng-view=""></div>
@@ -52,7 +27,7 @@
 
     <div class="footer">
       <div class="container">
-        <p>Made by @NashVail with d3, Angular and a whole lotta <span class="glyphicon glyphicon-heart"></span></p>
+        <p>Made by <a href = "http://www.twitter.com/NashVail" target = "_blank">@NashVail</a> with D3, Angular and a whole lot of <span class="glyphicon glyphicon-heart"></span></p>
       </div>
     </div>
 
@@ -90,12 +65,9 @@
         <script src="scripts/app.js"></script>
         <!-- Controllers -->
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/contact.js"></script>
 
         <!-- Services -->
         <script src = "scripts/services/services.js"></script>
-        <script src="scripts/controllers/works.js"></script>
         <script src="scripts/services/wordcountservice.js"></script>
         <script src="scripts/directives/linearwordsplot.js"></script>
         <script src="scripts/directives/logplot.js"></script>

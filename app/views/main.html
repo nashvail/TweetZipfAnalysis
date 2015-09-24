@@ -1,22 +1,25 @@
 <div class="page-header">
-  <center><h1>Run a Zipf's law analysis on your tweets</h1>
+  <center>
+  <h1>The Zipf mystery.</h1>
   <div class="row">
     <div class="col-xs-12">
+      <p class = "initial_explanation">
+        Welcome to zipf law, you're going to get your mind blown, so take it easy and concentrate on what we're doing. 
+      </p>
       <div class="control-group">
         <button type="button" ng-click="connectToTwitter()" id = "connectButton" class="btn btn-primary">Connect to twitter</button>
-        <button type="button" ng-click="refreshTimeline()" id = "getTimelineButton" class="btn btn-primary" style = "display:none;">Get my timeline</button>
+        <!-- <button type="button" ng-click="refreshTimeline()" id = "getTimelineButton" class="btn btn-primary" style = "display:none;">Refresh</button> -->
         <button type="button" ng-click="signOut()" id = "signOut" class="btn btn-primary" style = "display:none;">Sign out</button>
       </div>
     </div>
   </div>
   </center>
-  <div class="row">
-    <div class="col-xs-12 plot" id = "content">
-      <center><h1>Linear-Linear Plot</h1></center>
-      <linear-words-plot></linear-words-plot>
-      <center><h1>Log-Log Plot</h1></center>
-      <log-plot></log-plot>
-    </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 plot" id = "after_connect_content">
+    <center><h1>Linear-Linear Plot</h1></center>
+    <linear-words-plot></linear-words-plot>
+    <center><h1>Log-Log Plot</h1></center>
+    <log-plot></log-plot>
   </div>
-  <!-- We're going to have a directive here  -->
 </div>

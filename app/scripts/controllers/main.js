@@ -34,7 +34,7 @@ angular.module('zipfApp')
         if (twitterService.isReady()) {
           //if the authorization is successful, hide the connect button and display the tweets
           $('#connectButton').fadeOut(function() {
-            $('#getTimelineButton, #signOut, #content').fadeIn();
+            $('#getTimelineButton, #signOut, #after_connect_content').fadeIn();
             $scope.refreshTimeline();
           });
         }
@@ -45,7 +45,7 @@ angular.module('zipfApp')
     $scope.signOut = function() {
       twitterService.clearCache();
       $scope.tweets.length = 0;
-      $('#getTimelineButton, #signOut, #content').fadeOut(function() {
+      $('#getTimelineButton, #signOut, #after_connect_content').fadeOut(function() {
         $('#connectButton').fadeIn();
       });
     }
@@ -53,7 +53,7 @@ angular.module('zipfApp')
     //if the user is a returning user, hide the sign in button and display the tweets
     if (twitterService.isReady()) {
       $('#connectButton').hide();
-      $('#getTimelineButton, #signOut, #content').show();
+      $('#getTimelineButton, #signOut, #after_connect_content').show();
       $scope.refreshTimeline();
     }
 
