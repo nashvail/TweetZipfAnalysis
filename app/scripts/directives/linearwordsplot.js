@@ -11,7 +11,10 @@ angular.module('zipfApp')
 
   	// Plot dimensions
   	var width = 800,
-  			height = 600;
+  			height = 600,
+  			xScale = d3.scale.linear(),
+  			yScale = d3.scale.linear();
+
 
     return {
       restrict: 'E',
@@ -22,15 +25,30 @@ angular.module('zipfApp')
         	// Remove older left over elements
         	d3.select(element[0]).selectAll('*').remove();
 
+        	var plotData = scope.wordCounts;
+
+        	yScale.domain([ 0, d3.max( plotData, function(d) { return d[1];})]).range([height, 0]);
+
+
         	var plot = d3.select(element[0])
         		.append('svg')
         			.attr('width', width)
         			.attr('height', height);
 
-        	plot.append('rect')
-        		.attr('width', '100%')
-        		.attr('height', '100%')
-        		.attr('fill', '#00000');
+        	// Drawing scales and dots on the plot 
+        	plot.selectAll('circle')
+        		.data(plotData)
+        		.enter()
+        		.append('circle')
+        		.attr('r', 2)
+        		.attr('fill', 'black')
+        		.attr('cx', function(d, i) {
+        			return (i * 2) + 'px';
+        		})
+        		.attr('cy', function(d) {
+        			return (yScale(d[1]) + 'px');
+        		});
+
 
         });
       }
