@@ -94,7 +94,7 @@ body {
   margin-top : 50px;
 }
 
-#linearPlot {
+#content{
   margin-top : 50px;
 }
 
@@ -108,4 +108,8 @@ body {
 .axis text {
     font-family: sans-serif;
     font-size: 11px;
+}
+
+.linearPlot {
+  overflow : auto;
 }

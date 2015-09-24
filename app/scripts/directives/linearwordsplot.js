@@ -16,8 +16,8 @@ angular.module('zipfApp')
   			yScale = d3.scale.linear(),
   			xAxis = d3.svg.axis(),
   			yAxis = d3.svg.axis(),
-  			padding = 50,
-  			dotRadius = 2;
+  			padding = 30,
+  			dotRadius = 4;
 
 
     return {
@@ -32,13 +32,14 @@ angular.module('zipfApp')
         	var plotData = scope.wordCounts;
 
         	// Setting up the scale and then the axes 
-        	yScale.domain([ 0, d3.max( plotData, function(d) { return d[1];})]).range([height - padding, 0]);
-        	xScale.domain([0, width]).range([0, width - 100]);
+        	yScale.domain([ 0, d3.max( plotData, function(d) { return d[1];}) + 5]).range([height - padding, 0]);
+        	xScale.domain([0, plotData.length]).range([0, width - padding - 10]);
 
         	var plot = d3.select(element[0])
         		.append('svg')
         			.attr('width', width)
-        			.attr('height', height);
+              .attr('height', height)
+              .attr('class', 'linearPlot');
 
         	// Drawing scales and dots on the plot 
         	plot.selectAll('circle')
@@ -46,12 +47,12 @@ angular.module('zipfApp')
         		.enter()
         		.append('circle')
         		.attr('r', dotRadius)
-        		.attr('fill', 'black')
+        		.attr('fill', 'red')
         		.attr('cx', function(d, i) {
-        			return (xScale(i + 1)) + (padding + 5);
+        			return xScale(i) + padding + 2;
         		})
         		.attr('cy', function(d) {
-        			return yScale(d[1]) + 30;
+        			return yScale(d[1]);
         		});
 
         	// Drawing the axes on the plot 
@@ -60,12 +61,12 @@ angular.module('zipfApp')
 
         	plot.append('g')
         		.attr('class', 'axis')
-        		.attr("transform", "translate(" + (padding) + ", 30)")
+        		.attr("transform", "translate(" + (padding) + ", 0)")
         		.call(yAxis);
 
         	plot.append('g')
         		.attr('class', 'axis')
-        		.attr("transform", "translate(50," + (height - padding + 30) + ")")
+        		.attr("transform", "translate(" + padding + "," + (height - padding) + ")")
         		.call(xAxis);
 
 
