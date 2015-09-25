@@ -10,21 +10,24 @@
 angular.module('zipfApp')
   .controller('MainCtrl', function($scope, $q, twitterService, wordCountService) {
     $scope.tweets; // array of tweets
-    $scope.wordCounts; // array words with their usage counts [["the", 2], ["of", 1]...]
+    $scope.wordCounts = []; // array words with their usage counts [["the", 2], ["of", 1]...]
     twitterService.initialize();
 
     //using the OAuth authorization result get the latest 20 tweets from twitter for the user
     $scope.refreshTimeline = function() {
       twitterService.getLatestTweets().then(function(data) {
         $scope.tweets = data;
-        var wordCountsObject = wordCountService.getWordCounts(data);
+        wordCountService.getWordCounts(data).then(function(rawData) {
+          $scope.wordCounts = _.pairs(rawData);
+          $scope.wordCounts.sort(function(a, b) { return b[1] - a[1]});
 
-        $scope.wordCounts = _.pairs(wordCountsObject);
-        $scope.wordCounts.sort(function(a, b) { return b[1] - a[1]});
-
-        // Tell that the data for the graph is ready
-        $scope.$broadcast('Plot_Data_Ready');
-
+          // Broadcast that the data is ready,
+          // but we only want the listener to listen once so once broadcasted we will turn off the 
+          // data listeners
+          $scope.$broadcast('Plot_Data_Ready');
+          $scope.turnOffLinearPlotDataListener();
+          $scope.turnOffLogPlotDataListener();
+        });
       });
     }
 
@@ -34,8 +37,8 @@ angular.module('zipfApp')
         if (twitterService.isReady()) {
           //if the authorization is successful, hide the connect button and display the tweets
           $('#connectButton, #caution_copy').fadeOut(function() {
-            $('#getTimelineButton, #signOut, #after_twitter_connect').fadeIn();
             $scope.refreshTimeline();
+            $('#getTimelineButton, #signOut, #after_twitter_connect').fadeIn();
           });
         }
       });
@@ -45,12 +48,13 @@ angular.module('zipfApp')
     $scope.signOut = function() {
       twitterService.clearCache();
       $scope.tweets.length = 0;
+      $scope.wordCounts.length = 0;
       $('#getTimelineButton, #signOut, #after_twitter_connect').fadeOut(function() {
         $('#connectButton, #caution_copy').fadeIn();
       });
     }
 
-    //if the user is a returning user, hide the sign in button and display the tweets
+    // if the user is a returning user, hide the sign in button and display the tweets
     if (twitterService.isReady()) {
       $('#connectButton, #caution_copy').hide();
       $('#getTimelineButton, #signOut, #after_twitter_connect').show();

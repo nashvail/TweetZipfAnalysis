@@ -64,8 +64,10 @@ angular.module('zipfApp.services')
     return {
       getWordCounts: function(data) {
         rawTweetData = data;
-        processTweetsAndGetWordCounts();
-        return wordCounts;
+        return new Promise(function(resolve, reject) {
+          processTweetsAndGetWordCounts();
+          resolve(wordCounts);
+        });
       }
     };
   });

@@ -23,7 +23,7 @@ angular.module('zipfApp')
     return {
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
-        scope.$on('Plot_Data_Ready', function() {
+        scope.turnOffLogPlotDataListener = scope.$on('Plot_Data_Ready', function() {
 
           // Remove any of the left overs or the older plots
           d3.select(element[0]).selectAll('*').remove();
@@ -32,7 +32,7 @@ angular.module('zipfApp')
 
           // Setting up the scale and then the axes 
           yScale.domain([1, d3.max(logPlotData, function(d) {return d[1]; }) + 5]).range([height - padding, 0]);
-          xScale.domain([1, logPlotData.length]).range([0, width - padding]);
+          xScale.domain([1, logPlotData.length]).range([0, width - padding - 10]);
 
           var logPlot = d3.select(element[0])
             .append('svg')

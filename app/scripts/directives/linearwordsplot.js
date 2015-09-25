@@ -25,7 +25,7 @@ angular.module('zipfApp')
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
         // Once the data has been loaded and ready, draw the plot 
-        scope.$on('Plot_Data_Ready', function() {
+        scope.turnOffLinearPlotDataListener = scope.$on('Plot_Data_Ready', function() {
 
         	// Remove older left over elements
         	d3.select(element[0]).selectAll('*').remove();
@@ -34,7 +34,7 @@ angular.module('zipfApp')
 
         	// Setting up the scale and then the axes 
         	yScale.domain([ 0, d3.max( plotData, function(d) { return d[1];}) + 5]).range([height - padding, 0]);
-        	xScale.domain([0, plotData.length]).range([padding, width - padding]);
+        	xScale.domain([0, plotData.length]).range([0, width - padding - 10]);
 
         	var plot = d3.select(element[0])
         		.append('svg')
