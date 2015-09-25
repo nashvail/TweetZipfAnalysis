@@ -10,14 +10,15 @@ angular.module('zipfApp')
   .directive('linearWordsPlot', function () {
 
   	// Plot dimensions
-  	var width = 800,
-  			height = 600,
+  	var width = 600,
+  			height = 400,
   			xScale = d3.scale.linear(),
   			yScale = d3.scale.linear(),
   			xAxis = d3.svg.axis(),
   			yAxis = d3.svg.axis(),
   			padding = 30,
-  			dotRadius = 4;
+  			dotRadius = 4,
+        dotColor = '#002C7C';
 
 
     return {
@@ -47,7 +48,7 @@ angular.module('zipfApp')
         		.enter()
         		.append('circle')
         		.attr('r', dotRadius)
-        		.attr('fill', 'red')
+        		.attr('fill', dotColor)
         		.attr('cx', function(d, i) {
         			return xScale(i) + padding + 2;
         		})

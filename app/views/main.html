@@ -1,6 +1,6 @@
-<div class="page-header">
+<!-- <div class="page-header">
   <center>
-  <h1>The Zipf mystery.</h1>
+  <h1>The Zipf Mystery.</h1>
   <div class="row">
     <div class="col-xs-12">
       <p class = "initial_explanation">
@@ -8,7 +8,7 @@
       </p>
       <div class="control-group">
         <button type="button" ng-click="connectToTwitter()" id = "connectButton" class="btn btn-primary">Connect to twitter</button>
-        <!-- <button type="button" ng-click="refreshTimeline()" id = "getTimelineButton" class="btn btn-primary" style = "display:none;">Refresh</button> -->
+        <button type="button" ng-click="refreshTimeline()" id = "getTimelineButton" class="btn btn-primary" style = "display:none;">Refresh</button>
         <button type="button" ng-click="signOut()" id = "signOut" class="btn btn-primary" style = "display:none;">Sign out</button>
       </div>
     </div>
@@ -23,3 +23,33 @@
     <log-plot></log-plot>
   </div>
 </div>
+ -->
+
+<div class = "article">
+  <div class="article--header">
+    <h1 class = "article--header--title">THE ZIPF MYSTERY</h1>
+  </div>
+  <div class = "article--content">
+    <p class = "article--content--body_text">
+      Ever read, listened to or watched something that made you want to go on a long, quiet walk. Just to contemplate, contemplate anything, life, existence, death, fate, whatever. On September 15, 2015 the YouTube channel, VSauce uploaded a video, The Zipf Mystery. After watching the the video, you are bound to experience of those moments. If you haven’t watched the video yet, do yourself a favor, come back, and let’s put your tweets through a Zipf’s law test.
+    </p>
+    <button type="button" class="btn btn-default btn_skip">Skip to Analyze my tweets section</button>
+
+    <hr class = "article--content--sm_hr"/>
+
+    <p class="article--content--body_text">
+      What’s amazing is how thoughts expressed by different individuals, in different languages, on different subjects follow a predictable pattern. Have a look at Zipf’s law analysis of ...
+    </p>
+    
+    <div class="article--content--small_title">First three chapters of <i>The Adventures of Tom Sawyer</i></div>
+    <div class="article--content--small_title"><a href = "http://www.twitter.com/NashVail" target = "_blank">@NashVail</a>'s Tweets</div>
+    <div class="article--content--small_title">Your Tweets</div>
+    <div class="article--content--twitter_connect" id = "my_twitter">
+      <button type="button" class="btn btn-default btn_connect_twitter"><i class = "fa fa-twitter"></i></span>&nbsp;&nbsp;Analyze My Tweets</button>
+      <div class="caution_copy">
+        You will be prompted to connect to your Twitter account in a pop up window <br/> This app will never post anything on your behalf
+      </div>
+    </div>
+
+  </div>
+</divAnalyze My Tweets
