@@ -15,10 +15,10 @@ angular.module('zipfApp')
 
     //using the OAuth authorization result get the latest 20 tweets from twitter for the user
     $scope.refreshTimeline = function() {
-      twitterService.getLatestTweets().then(function(data) {
-        $scope.tweets = data;
-        wordCountService.getWordCounts(data).then(function(rawData) {
-          $scope.wordCounts = _.pairs(rawData);
+      twitterService.getLatestTweets().then(function(latestTweets) {
+        $scope.tweets = latestTweets;
+        wordCountService.getWordCounts(latestTweets).then(function(wordCountUnsorted) {
+          $scope.wordCounts = _.pairs(wordCountUnsorted);
           $scope.wordCounts.sort(function(a, b) { return b[1] - a[1]});
 
           // Broadcast that the data is ready,
