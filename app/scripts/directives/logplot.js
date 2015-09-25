@@ -16,7 +16,7 @@ angular.module('zipfApp')
       yScale = d3.scale.log(),
       xAxis = d3.svg.axis(),
       yAxis = d3.svg.axis(),
-      padding = 30,
+      padding = 50,
       dotRadius = 4,
       dotColor = '#002C7C';
 
@@ -57,8 +57,8 @@ angular.module('zipfApp')
 
 
           // Drawing the axes on the plot 
-          xAxis.scale(xScale).orient('bottom').tickFormat('').tickSize(0);
-          yAxis.scale(yScale).orient('left').tickFormat('').tickSize(0);
+          xAxis.scale(xScale).orient('bottom').tickFormat('');
+          yAxis.scale(yScale).orient('left').tickFormat('');
 
           logPlot.append('g')
             .attr('class', 'axis')
@@ -69,6 +69,24 @@ angular.module('zipfApp')
             .attr('class', 'axis')
             .attr("transform", "translate(" + padding + "," + (height - padding) + ")")
             .call(xAxis);
+
+          // Label for the x axis
+          logPlot.append('text')
+            .attr('class', 'axisLabel')
+            .attr('x', width/2)
+            .attr('y', height - 12)
+            .text('log( Rank )');
+
+          // Label for the y axis
+          logPlot.append('text')
+            .attr('class', 'axisLabel')
+            .attr('text-anchor', 'end')
+            .attr('x', -120)
+            .attr('transform', 'rotate(-90)')
+            .attr('y', 14)
+            .text('log ( Frequency )');
+
+
         });
       }
     };

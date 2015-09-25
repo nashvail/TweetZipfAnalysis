@@ -11,12 +11,12 @@ angular.module('zipfApp')
 
   	// Plot dimensions
   	var width = 600,
-  			height = 400,
+  			height = 450,
   			xScale = d3.scale.linear(),
   			yScale = d3.scale.linear(),
   			xAxis = d3.svg.axis(),
   			yAxis = d3.svg.axis(),
-  			padding = 30,
+  			padding = 50,
   			dotRadius = 4,
         dotColor = '#002C7C';
 
@@ -71,6 +71,21 @@ angular.module('zipfApp')
         		.call(xAxis);
 
 
+          // Label for the x axis
+          plot.append('text')
+            .attr('class', 'axisLabel')
+            .attr('x', width/2)
+            .attr('y', height - 12)
+            .text('Rank');
+
+          // Label for the y axis
+          plot.append('text')
+            .attr('class', 'axisLabel')
+            .attr('text-anchor', 'end')
+            .attr('x', -120)
+            .attr('transform', 'rotate(-90)')
+            .attr('y', 14)
+            .text('Frequency / # of occurences');
         });
       }
     };
