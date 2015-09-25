@@ -33,7 +33,7 @@
     <p class = "article--content--body_text">
       Ever read, listened to or watched something that made you want to go on a long, quiet walk. Just to contemplate, contemplate anything, life, existence, death, fate, whatever. On September 15, 2015 the YouTube channel, VSauce uploaded a video, The Zipf Mystery. After watching the the video, you are bound to experience of those moments. If you haven’t watched the video yet, do yourself a favor, come back, and let’s put your tweets through a Zipf’s law test.
     </p>
-    <button type="button" class="btn btn-default btn_skip">Skip to Analyze my tweets section</button>
+    <button type="button" class="btn btn-default btn_skip"  onclick="window.location.href='#my_twitter'">Skip to Analyze my tweets section</button>
 
     <hr class = "article--content--sm_hr"/>
 
@@ -43,15 +43,26 @@
     
     <div class="article--content--small_title">First three chapters of <i>The Adventures of Tom Sawyer</i></div>
     <div class="article--content--small_title"><a href = "http://www.twitter.com/NashVail" target = "_blank">@NashVail</a>'s Tweets</div>
+
+    <img src="../images/nv_linear.png" height="424" width="622" alt="" class ="plot_image">
+    <img src="../images/nv_log.png" height="428" width="622" alt="" class = "plot_image">
+
     <div class="article--content--small_title">Your Tweets</div>
     <div class="article--content--twitter_connect" id = "my_twitter">
-      <button type="button" class="btn btn-default btn_connect_twitter"><i class = "fa fa-twitter"></i></span>&nbsp;&nbsp;Analyze My Tweets</button>
-      <div class="caution_copy">
+      <button type="button" class="btn btn-default btn_connect_twitter" ng-click = "connectToTwitter()" id = "connectButton"><i class = "fa fa-twitter"></i></span>&nbsp;&nbsp;Analyze My Tweets</button>
+      <div id="caution_copy">
         You will be prompted to connect to your Twitter account in a pop up window <br/> This app will never post anything on your behalf
       </div>
     </div>
-    <p class = "article--content--body_text" id = "after_twitter_connect">
-      It’s surprising that something as complex as reality should be conveyed by something as creative as language in such a predictable way. Every person you will ever meet, despite of being born and brought up in completely different environment and situation than yours. Speaking a completely different language than yours. Maybe of a different gender and ethnicity than yours, despite of all these differences, will express themselves in an exact same pattern as you will. If that doesn’t blow your mind, you have no emotions.
-    </p>
+    <div id="after_twitter_connect">
+      <center><h1 class = "article--content--heading">Linear-Linear Plot</h1></center>
+      <linear-words-plot></linear-words-plot>
+      <center><h1 class = "article--content--heading">Log-Log Plot</h1></center>
+      <log-plot></log-plot>
+
+      <p class = "article--content--body_text" id = "after_twitter_connect">
+        It’s surprising that something as complex as reality should be conveyed by something as creative as language in such a predictable way. Every person you will ever meet, despite of being born and brought up in completely different environment and situation than yours. Speaking a completely different language than yours. Maybe of a different gender and ethnicity than yours, despite of all these differences, will express themselves in an exact same pattern as you will. If that doesn’t blow your mind, you have no emotions.
+      </p>
+    </div>
   </div>
 </divAnalyze My Tweets

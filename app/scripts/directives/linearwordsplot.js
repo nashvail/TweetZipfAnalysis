@@ -40,7 +40,7 @@ angular.module('zipfApp')
         		.append('svg')
         			.attr('width', width)
               .attr('height', height)
-              .attr('class', 'linearPlot');
+              .attr('class', 'realPlot');
 
         	// Drawing scales and dots on the plot 
         	plot.selectAll('circle')
