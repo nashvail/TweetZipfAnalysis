@@ -11,7 +11,7 @@ angular.module('zipfApp')
 
   	// Plot dimensions
   	var width = 600,
-  			height = 450,
+  			height = 500,
   			xScale = d3.scale.linear(),
   			yScale = d3.scale.linear(),
   			xAxis = d3.svg.axis(),
@@ -34,7 +34,7 @@ angular.module('zipfApp')
 
         	// Setting up the scale and then the axes 
         	yScale.domain([ 0, d3.max( plotData, function(d) { return d[1];}) + 5]).range([height - padding, 0]);
-        	xScale.domain([0, plotData.length]).range([0, width - padding - 10]);
+        	xScale.domain([0, plotData.length]).range([padding, width - padding]);
 
         	var plot = d3.select(element[0])
         		.append('svg')

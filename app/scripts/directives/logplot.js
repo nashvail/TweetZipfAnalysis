@@ -11,7 +11,7 @@ angular.module('zipfApp')
 
     // Plot dimensions and stuff 
     var width = 600,
-      height = 400,
+      height = 500,
       xScale = d3.scale.log(),
       yScale = d3.scale.log(),
       xAxis = d3.svg.axis(),
@@ -31,10 +31,8 @@ angular.module('zipfApp')
           var logPlotData = scope.wordCounts;
 
           // Setting up the scale and then the axes 
-          yScale.domain([1, d3.max(logPlotData, function(d) {
-            return d[1];
-          }) + 5]).range([height - padding, 0]);
-          xScale.domain([1, logPlotData.length]).range([0, width - padding - 10]);
+          yScale.domain([1, d3.max(logPlotData, function(d) {return d[1]; }) + 5]).range([height - padding, 0]);
+          xScale.domain([1, logPlotData.length]).range([0, width - padding]);
 
           var logPlot = d3.select(element[0])
             .append('svg')
