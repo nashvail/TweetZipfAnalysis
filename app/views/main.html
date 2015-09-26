@@ -16,7 +16,7 @@
     <!-- The connect to twitter button -->
     <div class="article--content--twitter_connect" id = "my_twitter">
       <button type="button" class="btn btn-default btn_connect_twitter" ng-click = "connectToTwitter()" id = "connectButton"><i class = "fa fa-twitter"></i></span>&nbsp;&nbsp;Analyze My Tweets</button>
-      <button type="button" class="btn btn-default btn_skip" ng-click = "signOut()" id = "signOut" style = "display : none;">Sign out from Twitter</button>
+      <button type="button" class="btn btn-default btn_skip" ng-click = "signOut()" id = "signOut" style = "display : none;">Disconnect Twitter</button>
       <div id="caution_copy">
         You will be prompted to connect to your Twitter account in a pop up window <br/> This site will never post anything on your behalf
       </div>
@@ -31,7 +31,7 @@
     <div id="after_twitter_connect">
 
       <p class="article--content--body_text">
-        Two hundred of your latest tweets have been analyzed and plotted on a Linear - Linear Frequency vs Rank plot, and a Log - Log Frequency vs Rank Plot. If you're a human, your tweets, the expression of your thoughts should follow Zipf's law. Do they?
+        Two hundred (or less) of your latest tweets have been analyzed and plotted on a Linear - Linear Frequency vs Rank plot, and a Log - Log Frequency vs Rank Plot. If you're a human, your tweets, the expression of your thoughts should follow Zipf's law. Do they?
       </p>
 
       <!-- User tweet plots  -->
@@ -50,7 +50,15 @@
       <img src="../images/nv_linear.png" height="424" width="622" alt="" class ="plot_image">
       <img src="../images/nv_log.png" height="428" width="622" alt="" class = "plot_image">
 
+      <p class = "article--content--body_text">
+        The resemblance is uncanny, isn't it? And if that doesn't daze you, you should check out the sources cited in the video description on YouTube. Like the Zipf's law analysis of ...
+      </p>
+
       <div class="article--content--small_title">First three chapters of <i>The Adventures of Tom Sawyer</i></div>
+  
+      <img src="../images/tomSawyerZipf.png" height="786" width="628" alt="" class = "plot_image">
+
+      <div class = "article--content--fig_labels">Source : <a href = "http://www.slideshare.net/guest9fc47a/nlp-new-words" target = "_blank">http://www.slideshare.net/guest9fc47a/nlp-new-words</a></div>
 
       <p class = "quoted article--content--body_text">"It’s surprising that something as complex as reality should be conveyed by something as creative as language in such a predictable way..."</p>
       <p class = "article--content--body_text">
@@ -58,4 +66,3 @@
       </p>
     </div> <!-- End of stuff to show after a connection to twitter is established -->
   </div>
-</divAnalyze My Tweets

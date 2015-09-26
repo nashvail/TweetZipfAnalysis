@@ -56,6 +56,21 @@ angular.module('zipfApp')
         			return yScale(d[1]);
         		});
 
+          // plot.selectAll('text')
+          //   .data(plotData)
+          //   .enter()
+          //   .append('text')
+          //   .attr('text-anchor', 'start')
+          //   .text(function(d) {
+          //     return d[0];
+          //   })
+          //   .attr('x', function(d, i) {
+          //     return ( i * 10 ) + padding;
+          //   })
+          //   .attr('y', function(d) {
+          //     return yScale(d[1]);
+          //   });
+
         	// Drawing the axes on the plot 
         	xAxis.scale(xScale).orient('bottom').ticks(20);
         	yAxis.scale(yScale).orient('left').ticks(12);
