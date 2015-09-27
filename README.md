@@ -1,7 +1,10 @@
-# zipf
+# Run a Zipf's law analysis on your tweets
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+This project is built with Angular and D3 and generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.12.1.
+
+## Installation
+`git clone` -> `npm install` -> `bower install`
 
 ## Build & development
 
