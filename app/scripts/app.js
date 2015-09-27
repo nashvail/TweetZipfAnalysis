@@ -26,21 +26,6 @@ var app = angular
         controllerAs: 'main',
         activetab: 'home'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about',
-        activetab : 'about'
-      })
-      .when('/contact', {
-        templateUrl: 'views/contact.html',
-        controller: 'ContactCtrl'
-      })
-      .when('/works', {
-        templateUrl: 'views/works.html',
-        controller: 'WorksCtrl',
-        controllerAs: 'works'
-      })
       .otherwise({
         redirectTo: '/'
       });

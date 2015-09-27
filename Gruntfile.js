@@ -258,10 +258,19 @@ module.exports = function (grunt) {
         flow: {
           html: {
             steps: {
-              js: ['concat', 'uglifyjs'],
+              js: ['concat', 'uglify'],
               css: ['cssmin']
             },
-            post: {}
+            post: {
+              js: [{
+          name: 'uglify',
+          createConfig: function (context, block) {
+            var generated = context.options.generated;
+            generated.options = {
+            };
+          }
+        }]
+            }
           }
         }
       }
